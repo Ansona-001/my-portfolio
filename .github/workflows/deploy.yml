@@ -32,17 +32,22 @@ jobs:
           port: 22
           script: |
             set -e
+
+            # Set safe directory for ubuntu user
+            git config --global --add safe.directory /var/www/portfolio/my-portfolio
+
             cd /var/www/portfolio/my-portfolio
 
-            # Pull latest
+            # Force pull
             git fetch origin
             git reset --hard origin/main
+            git clean -fd
 
             # Install & build
             npm ci
             npm run build
 
-            # Deploy (with sudo)
+            # Deploy
             sudo rsync -av --delete dist/ /var/www/portfolio/
             sudo chown -R www-data:www-data /var/www/portfolio
             sudo chmod -R 755 /var/www/portfolio
