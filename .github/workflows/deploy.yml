@@ -1,0 +1,42 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 140.245.215.22
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /var/www/portfolio/my-portfolio
+            git pull origin main
+            npm ci
+            npm run build
+            sudo cp -r dist/. /var/www/portfolio/
+            sudo chown -R www-data:www-data /var/www/portfolio
+            sudo chmod -R 755 /var/www/portfolio
+            sudo systemctl reload nginx
+            echo "Deployed at $(date)"
