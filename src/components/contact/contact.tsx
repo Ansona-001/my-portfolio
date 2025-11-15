@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Phone } from "lucide-react";
-import "./Contact.css";
+import "./contact.css";
 
 const Contact: React.FC = () => {
   return (
