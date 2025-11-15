@@ -32,7 +32,17 @@ jobs:
           script: |
             set -e
 
+            # Ensure directory exists
+            mkdir -p /var/www/portfolio/my-portfolio
             cd /var/www/portfolio/my-portfolio
+
+            # Clone if not exists
+            if [ ! -d ".git" ]; then
+              echo "Cloning repo..."
+              rm -rf /var/www/portfolio/my-portfolio
+              git clone https://github.com/Ansona-001/my-portfolio.git /var/www/portfolio/my-portfolio
+              cd /var/www/portfolio/my-portfolio
+            fi
 
             # Force update
             git fetch origin
@@ -43,11 +53,9 @@ jobs:
             npm ci
             npm run build
 
-            # COPY to temp, then rsync with sudo
+            # Deploy via temp
             rm -rf /tmp/portfolio-dist
             cp -r dist /tmp/portfolio-dist
-
-            # Deploy safely
             sudo rsync -av --delete /tmp/portfolio-dist/ /var/www/portfolio/
             sudo chown -R www-data:www-data /var/www/portfolio
             sudo chmod -R 755 /var/www/portfolio
