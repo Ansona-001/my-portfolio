@@ -1,0 +1,23 @@
+.intro-section {
+  @apply min-h-screen flex items-center justify-center bg-black text-white px-4 sm:px-6 md:px-0;
+}
+
+.intro-container {
+  @apply text-center;
+}
+
+.intro-name {
+  @apply text-5xl font-bold mb-4;
+}
+
+.intro-title {
+  @apply text-2xl mb-6;
+}
+
+.intro-description {
+  @apply text-lg max-w-2xl mx-auto;
+}
+
+.intro-button {
+  @apply mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100;
+}

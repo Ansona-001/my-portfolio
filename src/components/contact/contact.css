@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Section wrapper */
+.contact-section {
+  @apply py-20 bg-black text-white;
+}
+
+/* Container */
+.contact-container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center;
+}
+
+/* Heading */
+.contact-title {
+  @apply text-4xl font-bold mb-12;
+}
+
+/* Grid layout (2-column on medium+, 1-column on mobile) */
+.contact-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center;
+}
+
+/* Each contact card */
+.contact-card {
+  @apply w-full sm:w-[90%] flex items-center justify-between bg-zinc-900 p-5 rounded-xl shadow-lg hover:bg-zinc-800 transition;
+}
+
+/* Inner content */
+.contact-info {
+  @apply flex items-center space-x-4;
+}
+
+.contact-icon-box {
+  @apply p-3 bg-zinc-800 rounded-lg;
+}
+
+.contact-icon {
+  @apply w-6 h-6 text-blue-400;
+}
+
+.contact-text {
+  @apply text-left;
+}
+
+.contact-label {
+  @apply text-sm text-gray-400;
+}
+
+.contact-detail {
+  @apply font-semibold;
+}
+
+.contact-link {
+  @apply text-gray-400 hover:text-blue-400;
+}
+
+/* Footer text */
+.contact-footer {
+  @apply mt-12 text-gray-400;
+}

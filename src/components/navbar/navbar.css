@@ -1,0 +1,23 @@
+.navbar {
+  @apply fixed top-0 w-full bg-white shadow-md z-10;
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.navbar-content {
+  @apply flex justify-between h-16;
+}
+
+.navbar-brand {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.navbar-links {
+  @apply flex items-center space-x-4;
+}
+
+.navbar-link {
+  @apply text-gray-600 hover:text-blue-600;
+}

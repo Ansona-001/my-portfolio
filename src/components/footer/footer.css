@@ -1,0 +1,11 @@
+.footer {
+  @apply bg-gray-800 text-white py-6;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center space-x-6;
+}
+
+.footer-link {
+  @apply flex items-center space-x-2 text-gray-400 hover:text-white;
+}
