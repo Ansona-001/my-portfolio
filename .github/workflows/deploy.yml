@@ -17,11 +17,10 @@ jobs:
           node-version: 18
           cache: "npm"
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@v0.1.10
@@ -33,12 +32,9 @@ jobs:
           script: |
             set -e
 
-            # Set safe directory for ubuntu user
-            git config --global --add safe.directory /var/www/portfolio/my-portfolio
-
             cd /var/www/portfolio/my-portfolio
 
-            # Force pull
+            # Force update
             git fetch origin
             git reset --hard origin/main
             git clean -fd
