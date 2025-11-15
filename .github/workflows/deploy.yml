@@ -32,23 +32,20 @@ jobs:
           script: |
             set -e
 
-            # Ensure parent dir is writable
+            # Ensure parent dir exists
             sudo mkdir -p /var/www/portfolio
             sudo chown ubuntu:ubuntu /var/www/portfolio
 
-            # Setup repo
-            mkdir -p /var/www/portfolio/my-portfolio
-            cd /var/www/portfolio/my-portfolio
-
-            # Clone if missing
-            if [ ! -d ".git" ]; then
-              echo "Cloning repo..."
-              rm -rf /var/www/portfolio/my-portfolio
+            # === DO NOT DELETE my-portfolio ===
+            # Just ensure it exists and is writable
+            if [ ! -d "/var/www/portfolio/my-portfolio" ]; then
+              mkdir -p /var/www/portfolio/my-portfolio
               git clone https://github.com/Ansona-001/my-portfolio.git /var/www/portfolio/my-portfolio
-              cd /var/www/portfolio/my-portfolio
             fi
 
-            # Force update
+            cd /var/www/portfolio/my-portfolio
+
+            # Force update (no delete!)
             git fetch origin
             git reset --hard origin/main
             git clean -fd
