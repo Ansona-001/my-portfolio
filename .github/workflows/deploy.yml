@@ -43,8 +43,12 @@ jobs:
             npm ci
             npm run build
 
-            # Deploy
-            sudo rsync -av --delete dist/ /var/www/portfolio/
+            # COPY to temp, then rsync with sudo
+            rm -rf /tmp/portfolio-dist
+            cp -r dist /tmp/portfolio-dist
+
+            # Deploy safely
+            sudo rsync -av --delete /tmp/portfolio-dist/ /var/www/portfolio/
             sudo chown -R www-data:www-data /var/www/portfolio
             sudo chmod -R 755 /var/www/portfolio
             sudo systemctl reload nginx
