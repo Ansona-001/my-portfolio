@@ -32,11 +32,15 @@ jobs:
           script: |
             set -e
 
-            # Ensure directory exists
+            # Ensure parent dir is writable
+            sudo mkdir -p /var/www/portfolio
+            sudo chown ubuntu:ubuntu /var/www/portfolio
+
+            # Setup repo
             mkdir -p /var/www/portfolio/my-portfolio
             cd /var/www/portfolio/my-portfolio
 
-            # Clone if not exists
+            # Clone if missing
             if [ ! -d ".git" ]; then
               echo "Cloning repo..."
               rm -rf /var/www/portfolio/my-portfolio
