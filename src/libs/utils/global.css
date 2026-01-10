@@ -1,7 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-.container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+.flappy-ground {
+  background-color: #ded895;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.05) 0,
+    rgba(0, 0, 0, 0.05) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.font-pixel {
+  font-family: 'Press Start 2P', cursive;
 }
