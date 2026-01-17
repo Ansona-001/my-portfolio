@@ -37,13 +37,23 @@ git clone https://github.com/Ansona-001/my-portfolio.git
 ```
 
 Navigate to the project folder:
+
+```bash
 cd portfolio
+```
 
 Install dependencies:
+
+```bash
 npm install
+```
 
 Run the development server:
+
+```bash
 npm run dev
+```
 
 Open your browser and visit:
+
 http://localhost:5173
