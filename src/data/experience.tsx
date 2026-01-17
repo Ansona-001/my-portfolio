@@ -1,9 +1,29 @@
-export const experiences = [
+// src/data/experience.tsx
+
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  period: string;
+  points: string[];
+}
+
+export const experiences: ExperienceItem[] = [
   {
-    role: "Software Developer",
+    role: "Full-Stack Developer",
     company: "Trasna Solutions",
-    period: "Jan 2022 - Present",
-    description:
-      "Developed and maintained multiple client-facing web applications using React, TypeScript, and Tailwind CSS. Improved application performance by 30% through code optimization and lazy loading.",
+    period: "2022 - PRESENT",
+    points: [
+      "Architected scalable React design systems for complex enterprise UI's.",
+      "Optimized frontend performance by auditing and refactoring core code.",
+      "Took ownership of the technical roadmap for high-priority feature launches.",
+
+      "Developed robust backend services with Python to power dynamic UI's.",
+      "Integrated secure user authentication and authorization protocols.",
+      "Managed and optimized relational databases for high-data modules.",
+
+      "Developed responsive user interfaces from Figma design specifications.",
+      "Built reusable React components to standardize the internal library.",
+      "Collaborated with senior engineers to implement and test new features.",
+    ],
   },
 ];
