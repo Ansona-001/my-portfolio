@@ -1,4 +1,3 @@
-"use client";
 import { skills, type Skill } from "../../data/skills";
 import { motion } from "framer-motion";
 

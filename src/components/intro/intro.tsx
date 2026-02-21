@@ -1,7 +1,6 @@
-"use client";
 import React from "react";
-import { motion } from "framer-motion";
 import resumeFile from "../../assets/docs/resume.pdf";
+import profilePic from "../../assets/images/profile.jpeg";
 
 const Intro: React.FC = () => {
   const handleDownload = () => {
@@ -14,28 +13,17 @@ const Intro: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center text-center space-y-12 px-4">
-      <motion.div
-        animate={{
-          x: [-15, 15, -15],
-          y: [0, -25, 0],
-          rotate: [-5, 10, -5],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 2.5,
-          ease: "easeInOut",
-        }}
-        className="relative w-24 h-24 sm:w-32 sm:h-32"
-      >
+    <div className="relative flex flex-col items-center text-center space-y-12 px-4">
+      {/* Static profile picture */}
+      <div className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-lg z-10">
         <img
-          src="/images/bird.png"
-          alt="Flappy Bird"
-          className="w-full h-full object-contain rendering-pixelated drop-shadow-[6px_6px_0px_rgba(0,0,0,0.3)]"
+          src={profilePic}
+          alt="Profile"
+          className="w-full h-full object-cover"
         />
-      </motion.div>
+      </div>
 
-      <div className="flex flex-col items-center gap-4 max-w-2xl">
+      <div className="flex flex-col items-center gap-4 max-w-2xl z-10">
         <h1 className="text-4xl md:text-6xl font-pixel text-white drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] uppercase tracking-tighter leading-tight">
           SOFTWARE DEVELOPER
         </h1>
